@@ -5,6 +5,9 @@
 <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 
 <style>
+	body {
+		font-family: monospace;
+	}
 	#main-content {
 		margin-top:20px;
 	}
@@ -18,8 +21,7 @@
 
 	.header {
 		margin-bottom: 2rem;
-    	background-color: #e9ecef;
-    	border-radius: .3rem;
-		padding: 4rem 2rem;
+    	background-color: rgba(55,55,55,.15);
+    	padding: 3rem 2rem;
 	}
 </style>
