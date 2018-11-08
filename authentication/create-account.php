@@ -20,27 +20,24 @@
             $credit_card = mysqli_real_escape_string($db,$_POST['credit_card']);
             $birthday = mysqli_real_escape_string($db,$_POST['birthday']);
             $join_date = date();
-            $sql = "INSERT INTO Client(
-                credit_card, password, first_name, last_name, email_address, address, phone, birthday, join_date, session_token) VALUES(
-                    $credit_card, $password, $first_name, $last_name, $email_address, $address, $phone, $join_date, $session_token)";
-            createAccount($sql);
+            $sql = "INSERT INTO `client`(
+                `credit_card`, `password`, `first_name`, `last_name`, `email_address`, `address`, `phone`, `birthday`, `join_date`, `session_token`) VALUES(
+                    '$credit_card', '$password', '$first_name', '$last_name', '$email_address', '$address', '$phone', '$join_date', '$session_token')";
+
+            mysqli_query($db,$sql);
+
         }elseif($_POST['action'] == "employee"){
-            $is_admin = mysqli_real_escape_string($db,$_POST['is_admin']);
+            $is_admin = mysqli_real_escape_string($db, $_POST['is_admin']) == 'on' ? 1 : 0;
             $title = mysqli_real_escape_string($db,$_POST['title']);
             $start_date = mysqli_real_escape_string($db,$_POST['start_date']);
             $salary = mysqli_real_escape_string($db,$_POST['salary']);
 
-            $sql = "INSERT INTO Employee(
-                password, first_name, last_name, email_address, address, phone, title, start_date, salary, isAdmin, session_token) 
-                VALUES($password, $first_name, $last_name, $email_address, $address, $phone, $title, $start_date, $salary, $is_admin, $session_token)";
-            createAccount($sql);
-            setcookie("session_token", $session_token, (86400 * 30));//name - value - expiry(30 days)
-        }
+            $sql = "INSERT INTO `employee`(
+                `password`, `first_name`, `last_name`, `email_address`, `address`, `phone`, `title`, `start_date`, `salary`, `isAdmin`, `session_token`) 
+                VALUES('$password', '$first_name', '$last_name', '$email_address', '$address', '$phone', '$title', '$start_date', '$salary', '$is_admin', '$session_token')";
 
-        function createAccount($sqlQuerry){
-            $result = mysqli_query($db,$sqlQuerry);
-            print("CREATE ACCOUNT!!!");
-            print($result);
+            mysqli_query($db,$sql);
+            setcookie("session_token", $session_token, (86400 * 30));//name - value - expiry(30 days)
         }
    }
 ?>
