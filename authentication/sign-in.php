@@ -5,21 +5,26 @@
    //called when form is submitted
    if($_SERVER["REQUEST_METHOD"] == "POST") {
 
-      $username = mysqli_real_escape_string($db,$_POST['username']);
-      $password = mysqli_real_escape_string($db,$_POST['password']); 
       
-      $sql = "SELECT id FROM admin WHERE username = '$username' and password = '$password'";
+      $password = mysqli_real_escape_string($db,$_POST['password']); 
+
+      if($_POST['action'] == "client"){
+        $credit_card = mysqli_real_escape_string($db,$_POST['credit_card']);
+        $sql = "SELECT * FROM Client WHERE credit_card = '$credit_card' and password = '$password'";
+      }elseif($_POST['action'] == "client"){
+        $email_address = mysqli_real_escape_string($db,$_POST['email_address']);
+        $sql = "SELECT * FROM Employee WHERE email_address = '$email_address' and password = '$password'";
+      }
+      
+
       $result = mysqli_query($db,$sql);
       $row = mysqli_fetch_array($result,MYSQLI_ASSOC);
-      $active = $row['active'];
+      $count = mysqli_num_rows($result);// If result matched $myusername and $mypassword, table row must be 1 row
       
-      $count = mysqli_num_rows($result);
-      // If result matched $myusername and $mypassword, table row must be 1 row
-		
       if($count == 1) {
+          ##NOT SURE YET
          session_register("myusername");
          $_SESSION['login_user'] = $username;
-         
          header("location: welcome.php");
       }else {
          $error = "Your Login Name or Password is invalid";
@@ -37,7 +42,7 @@
 
         <div class="container" id="main-content">
             <h2>Sign In</h2>
-            <form action = "" method = "post" class = "form-box">
+            <form action = "home/employee-home.php" method = "post" class = "form-box">
                 <h3>For Employees</h3>
                 <label>UserName  :</label><input type = "text" name = "username" class = "box"/><br /><br />
                 <label>Password  :</label><input type = "password" name = "password" class = "box" /><br/><br/>
@@ -45,9 +50,9 @@
             </form>
 
             
-            <form action = "" method = "post" class = "form-box">
+            <form action = "../home/client-home.php" method = "post" class = "form-box">
                 <h3>For Clients</h3>
-                <label>Credit Card  :</label><input type = "text" name = "username" class = "box"/><br /><br />
+                <label>Credit Card  :</label><input type = "text" name = "credit_card" class = "box"/><br /><br />
                 <label>Password  :</label><input type = "password" name = "password" class = "box" /><br/><br/>
                 <input type = "submit" value = " Submit "/><br />
             </form>
