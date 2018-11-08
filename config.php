@@ -1,5 +1,5 @@
 <?php
-    define('DB_SERVER', 'mec353.encs.concordia.ca');
+    define('DB_SERVER', 'mec353.encs.concordia.ca:3006');
     define('DB_USERNAME', 'mec353_2');
     define('DB_PASSWORD', '11compdb');
     define('DB_DATABASE', 'mec353_2');

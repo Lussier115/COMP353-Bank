@@ -58,7 +58,6 @@
                 <label>Password  :</label><input type = "password" name = "password" class = "box" /><br/><br/>
                 <input type = "submit" value = " Submit "/><br />
             </form>
-            <button><a href = "/authentication/create-account.php">Create Account</button>
         </div>
 
         <?php include("../includes/footer.php");?>

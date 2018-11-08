@@ -1,3 +1,23 @@
 <div class="header">
-	<h1>Bank Management System</h1>
+
+    <div class="container-header">
+        <ul class="nav nav-pills">
+            <li class="nav-item">
+                <a class="nav-link " href="../authentication/create-account.php">Create Account</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="../authentication/sign-in.php">Sign-in</a>
+            </li>
+        </ul>
+    </div>
+
+    <a class="nav-link" href="../index.php"><h1>Bank Management System</h1></a>
 </div>
+
+<style>
+    .container-header {
+        float: right;
+        max-width: fit-content;
+        margin-top: -30px;
+    }
+</style>
