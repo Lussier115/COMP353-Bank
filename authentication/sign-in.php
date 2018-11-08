@@ -5,13 +5,12 @@
    //called when form is submitted
    if($_SERVER["REQUEST_METHOD"] == "POST") {
 
-      
       $password = mysqli_real_escape_string($db,$_POST['password']); 
 
       if($_POST['action'] == "client"){
         $credit_card = mysqli_real_escape_string($db,$_POST['credit_card']);
         $sql = "SELECT * FROM Client WHERE credit_card = '$credit_card' and password = '$password'";
-      }elseif($_POST['action'] == "client"){
+      }elseif($_POST['action'] == "employee"){
         $email_address = mysqli_real_escape_string($db,$_POST['email_address']);
         $sql = "SELECT * FROM Employee WHERE email_address = '$email_address' and password = '$password'";
       }
@@ -44,18 +43,20 @@
 
         <div class="container" id="main-content">
             <h2>Sign In</h2>
-            <form action = "home/employee-home.php" method = "post" class = "form-box">
+            <form action = "" method = "post" class = "form-box">
                 <h3>For Employees</h3>
-                <label>UserName  :</label><input type = "text" name = "username" class = "box"/><br /><br />
+                <label>Email  :</label><input type = "text" name = "email" class = "box"/><br /><br />
                 <label>Password  :</label><input type = "password" name = "password" class = "box" /><br/><br/>
+                <input type="hidden" name="action" value="employee">
                 <input type = "submit" value = " Submit "/><br />
             </form>
 
             
-            <form action = "../home/client-home.php" method = "post" class = "form-box">
+            <form action = "" method = "post" class = "form-box">
                 <h3>For Clients</h3>
                 <label>Credit Card  :</label><input type = "text" name = "credit_card" class = "box"/><br /><br />
                 <label>Password  :</label><input type = "password" name = "password" class = "box" /><br/><br/>
+                <input type="hidden" name="action" value="client">
                 <input type = "submit" value = " Submit "/><br />
             </form>
         </div>
