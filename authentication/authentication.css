@@ -4,7 +4,6 @@ body{
 }
 .container{
     text-align: center;
-    margin-top: 10% !important;
 }
 
 .form-box{
@@ -13,4 +12,6 @@ body{
     border-radius: 15px;
     width: fit-content;
     padding: 20px;
+    text-align: left;
+    display: inline-table;
 }

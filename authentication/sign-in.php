@@ -40,6 +40,8 @@
     </head>
     <body>
 
+    <?php include("../includes/header.php");?>
+
         <div class="container" id="main-content">
             <h2>Sign In</h2>
             <form action = "home/employee-home.php" method = "post" class = "form-box">

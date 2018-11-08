@@ -52,7 +52,7 @@
         <link rel="stylesheet" type="text/css" href="authentication.css">
     </head>
     <body>
-
+    <?php include("../includes/header.php"); ?>
         <div class="container" id="main-content">
             <h2>Create Account</h2>
             

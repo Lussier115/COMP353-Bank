@@ -22,7 +22,7 @@
 
 	.header {
 		margin-bottom: 2rem;
-    		background-color: #e9ecef;
+        background-color: #929292;
 		padding: 3rem 2rem;
 	}
 </style>
