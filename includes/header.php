@@ -5,8 +5,13 @@
             <li class="nav-item">
                 <a class="nav-link " href="../authentication/create-account.php">Create Account</a>
             </li>
+
             <li class="nav-item">
-                <a class="nav-link" href="../authentication/sign-in.php">Sign-in</a>
+                <a class="nav-link" href="../authentication/login.php">Sign-in</a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="../authentication/logout.php">Log out</a>
             </li>
         </ul>
     </div>

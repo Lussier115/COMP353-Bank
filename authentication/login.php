@@ -8,25 +8,32 @@
       $password = mysqli_real_escape_string($db,$_POST['password']); 
 
       if($_POST['action'] == "client"){
-        $credit_card = mysqli_real_escape_string($db,$_POST['credit_card']);
-        $sql = "SELECT * FROM Client WHERE credit_card = '$credit_card' and password = '$password'";
+          $email = mysqli_real_escape_string($db,$_POST['email']);
+        $sql = "SELECT session_token FROM client WHERE email = '$email' and password = '$password'";
       }elseif($_POST['action'] == "employee"){
-        $email_address = mysqli_real_escape_string($db,$_POST['email_address']);
-        $sql = "SELECT * FROM Employee WHERE email_address = '$email_address' and password = '$password'";
+          $email = mysqli_real_escape_string($db,$_POST['email']);
+        $sql = "SELECT session_token, isAdmin FROM employee WHERE email = '$email' and password = '$password'";
       }
-      
 
       $result = mysqli_query($db,$sql);
       $row = mysqli_fetch_array($result,MYSQLI_ASSOC);
-      $count = mysqli_num_rows($result);// If result matched $myusername and $mypassword, table row must be 1 row
+      $count = mysqli_num_rows($result);
       
-      if($count == 1) {
-          ##NOT SURE YET
-         session_register("myusername");
-         $_SESSION['login_user'] = $username;
-         header("location: welcome.php");
+      if($count == '1') {
+         $_SESSION['session_token'] = $row["session_token"];
+
+         if($_POST['action'] == "client"){
+             $_SESSION['account'] = "client";
+             header("location: ../client/client-home.php");
+         }
+         elseif ($_POST['action'] == "employee"){
+             $_SESSION['isAdmin'] = $row['isAdmin'];
+             $_SESSION['account'] = "employee";
+             header("location: ../employee/employee-home.php");
+          }
+
       }else {
-         $error = "Your Login Name or Password is invalid";
+         $error = "Login Name or Password is invalid";
       }
    }
 ?>
@@ -54,7 +61,7 @@
             
             <form action = "" method = "post" class = "form-box">
                 <h3>For Clients</h3>
-                <label>Credit Card  :</label><input type = "text" name = "credit_card" class = "box"/><br /><br />
+                <label>Email  :</label><input type = "text" name = "email" class = "box"/><br /><br />
                 <label>Password  :</label><input type = "password" name = "password" class = "box" /><br/><br/>
                 <input type="hidden" name="action" value="client">
                 <input type = "submit" value = " Submit "/><br />
