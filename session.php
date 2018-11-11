@@ -10,7 +10,7 @@
    session_start();
 
    if(!isset($_SESSION['session_token'])){
-       header("location: authentication/login.php");
+       header("location: ../authentication/login.php");
    }
 
 ?>
