@@ -8,10 +8,10 @@
 <body>
 
 <?php include("../includes/header.php");?>
-<?php include("../includes/navigation.php");?>
+<?php include("employee-nav.php");?>
 
 <div class="container" id="main-content">
-	<h2>Employee Home</h2>
+	<h2>Employee Account</h2>
 	<p>Have all the employee actions here</p>
 </div>
 

@@ -8,10 +8,10 @@
 <body>
 
 <?php include("../includes/header.php");?>
-<?php include("../includes/navigation.php");?>
+<?php include("client-nav.php");?>
 
 <div class="container" id="main-content">
-	<h2>Client Home</h2>
+	<h2>Client Account</h2>
 	<p>Have all the client actions here</p>
 </div>
 
