@@ -7,8 +7,6 @@
  */
 
    session_start();
-   include('config.php');
-
 
    if(!isset($_SESSION['session_token'])){
        header("location: ../authentication/login.php");
