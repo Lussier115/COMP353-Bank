@@ -9,10 +9,10 @@
 
       if($_POST['action'] == "client"){
           $email = mysqli_real_escape_string($db,$_POST['email']);
-        $sql = "SELECT session_token FROM client WHERE email = '$email' and password = '$password'";
+        $sql = "SELECT session_token,client_id FROM client WHERE email = '$email' and password = '$password'";
       }elseif($_POST['action'] == "employee"){
           $email = mysqli_real_escape_string($db,$_POST['email']);
-        $sql = "SELECT session_token, isAdmin FROM employee WHERE email = '$email' and password = '$password'";
+        $sql = "SELECT session_token, isAdmin, employee_id FROM employee WHERE email = '$email' and password = '$password'";
       }
 
       $result = mysqli_query($db,$sql);
@@ -24,11 +24,13 @@
 
          if($_POST['action'] == "client"){
              $_SESSION['account'] = "client";
+             $_SESSION['client_id'] = $row["client_id"];
              header("location: ../client/client-home.php");
          }
          elseif ($_POST['action'] == "employee"){
              $_SESSION['isAdmin'] = $row['isAdmin'];
              $_SESSION['account'] = "employee";
+             $_SESSION['employee_id'] = $row["employee_id"];
              header("location: ../employee/employee-home.php");
           }
 
