@@ -9,10 +9,10 @@
 
       if($_POST['action'] == "client"){
           $email = mysqli_real_escape_string($db,$_POST['email']);
-        $sql = "SELECT session_token,client_id FROM client WHERE email = '$email' and password = '$password'";
+        $sql = "SELECT session_token,client_id FROM mec353_2.client WHERE email = '$email' and password = '$password'";
       }elseif($_POST['action'] == "employee"){
           $email = mysqli_real_escape_string($db,$_POST['email']);
-        $sql = "SELECT session_token, isAdmin, employee_id FROM employee WHERE email = '$email' and password = '$password'";
+        $sql = "SELECT session_token, isAdmin, employee_id FROM mec353_2.employee WHERE email = '$email' and password = '$password'";
       }
 
       $result = mysqli_query($db,$sql);
