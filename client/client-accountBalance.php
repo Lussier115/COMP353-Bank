@@ -1,19 +1,22 @@
 <?php
 session_start();
-    include('../session.php');
+
     include('../config.php');
 
 
     //add selection criteria of type of account (buisness/personnal)
     $current_client_id= $_SESSION['client_id'] ;
-    $sql = "SELECT interest_rate.kind_of_service, account.balance FROM interest_rate, account, WHERE account.client_id==$current_client_id AND interest_rate.interest_rate_id ==account.interest_rate_id";
+    echo "current_client_id: ".$current_client_id;
+    $sql = "SELECT DISTINCT interest_rate.kind_of_service, account.balance, account.client_id FROM interest_rate, account WHERE account.client_id = ($current_client_id) AND interest_rate.interest_rate_id = account.interest_rate_id";
     $result = mysqli_query($db,$sql);
 
     if ($result->num_rows > 0){
         // output data of each row
         echo "Account       Balance";
         while($row = $result->fetch_assoc()) {
-            echo  $row["kind_of_service"]. ": ". $row["balance"];
+
+            echo nl2br("\r\n ");
+            echo  $row["kind_of_service"]. ": ". $row["balance"]. "  ID: ".$row["client_id"];
         }
     } else {
         echo "No Accounts to show";
