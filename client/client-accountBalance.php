@@ -12,48 +12,7 @@ $sql = "SELECT DISTINCT interest_rate.kind_of_service, account.balance, interest
 
 // AND interest_rate.type_of_account = ($current_profile)";
 $result = mysqli_query($db, $sql);
-
-
-//    if ($result->num_rows > 0){
-//        // output data of each row
-//        echo nl2br("\r\n ");
-//
-//        echo "Account       Balance";
-//        while($row = $result->fetch_assoc()) {
-//
-//            echo nl2br("\r\n ");
-//            echo  $row["kind_of_service"]. ": ". $row["balance"]. "  type of account:  ".$row["type_of_account"];
-//        }
-//    } else {
-//        echo nl2br("\r\n ");
-//        echo "No Accounts to show";
-//    }
-
-
-
-
-//    echo "<table>"; // start a table tag in the HTML
-//
-//        if ($result->num_rows > 0) {
-//            // output data of each row
-//            echo nl2br("\r\n ");
-//
-//            echo "Account       Balance";
-//            while ($row = $result->fetch_assoc()) {
-//
-//                echo nl2br("\r\n ");
-//              //  echo $row["kind_of_service"] . ": " . $row["balance"] . "  type of account:  " . $row["type_of_account"];
-//                echo "<tr><td>" . $row['kind_of_service'] . "</td><td>" . $row['balance'] . "</td><td>" . $row['type_of_account']. "</td></tr>";
-//
-//            }
-//        } else {
-//            echo nl2br("\r\n ");
-//            echo "No Accounts to show";
-//
-//        }
-//echo "</table>"; //Close the table in HTML
-//
-//?>
+?>
 
 
 <!DOCTYPE html>
@@ -68,7 +27,7 @@ $result = mysqli_query($db, $sql);
 
 
       <?php
-       echo "<table border='' style='width: 25%'>"; // start a table tag in the HTML
+       echo "<table border='' style='width: 25%'>";
        echo "<tr> <th>ACCOUNT</th><th>BALANCE</th></tr>" ;
 
         if ($result->num_rows > 0) {
@@ -86,7 +45,7 @@ $result = mysqli_query($db, $sql);
             echo "No Accounts to show";
 
         }
-        echo "</table>"; //Close the table in HTML
+        echo "</table>";
       ?>
 
 
