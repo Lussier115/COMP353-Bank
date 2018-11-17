@@ -22,7 +22,7 @@
 		</li>
 		<li>
 			<a class="nav-link <?php if ($CURRENT_PAGE == "page2.php") { /*page2.php is only for reference. add information when page is added.*/
-                ?>active<?php } ?>" href="">Client Page 2</a>
+                ?>active<?php } ?>" href="../client/actions/future-payment.php">Pay Bills</a>
 		</li>
 		<li>
 			<a class="nav-link <?php if ($CURRENT_PAGE == "page3.php") { /*page3.php is only for reference. add information when page is added.*/
