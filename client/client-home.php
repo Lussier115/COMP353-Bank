@@ -1,3 +1,4 @@
+
 <?php include('../session.php');
 
 if ($_SERVER["REQUEST_METHOD"] == "POST"){
@@ -15,6 +16,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
 
 ?>
 
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -23,8 +25,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
 </head>
 <body>
 
-<?php include("../includes/header.php");?>
-<?php include("client-nav.php");?>
+<?php include("../includes/header.php"); ?>
+<?php include("client-nav.php"); ?>
 
 <div class="container" id="main-content">
 	<h2>Client Account</h2>
@@ -47,7 +49,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
 
 </div>
 
-<?php include("../includes/footer.php");?>
+<?php include("../includes/footer.php"); ?>
 
 </body>
 </html>
