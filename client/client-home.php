@@ -1,4 +1,19 @@
-<?php include('../session.php')?>
+<?php include('../session.php');
+
+if ($_SERVER["REQUEST_METHOD"] == "POST"){
+
+    if ($_SESSION[profile_type]=="business"){
+        $_SESSION[profile_type]="personal";
+    }elseif($_SESSION[profile_type]=="personal"){
+        $_SESSION[profile_type]="business";
+    }
+
+}
+
+
+
+
+?>
 
 <!DOCTYPE html>
 <html>
@@ -16,7 +31,7 @@
 	<p>Have all the client actions here</p>
 
 
-    <form action="checkbox-form.php" method="post">
+    <form action="client-home.php" method="post">
         <label class="switch">
             <input type="checkbox" name= "account_type" id="togBtn" onChange="this.form.submit()">
             <div class="slider round" ><!--ADDED HTML --><span class="on">Business</span><span class="off">   Personal</span><!--END--></div>
