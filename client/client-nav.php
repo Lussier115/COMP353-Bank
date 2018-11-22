@@ -13,15 +13,15 @@
                 ?>active<?php } ?>" href="/about.php">About Us</a>
 		</li>
 		<li>
-			<a class="nav-link <?php if ($CURRENT_PAGE != "index.php" && $CURRENT_PAGE != "about.php") {
+			<a class="nav-link <?php if (strpos($CURRENT_PAGE,"home") == true) {
                 ?>active<?php } ?>" href="/account.php">Account</a>
 		</li>
 		<li>
-			<a class="nav-link <?php if ($CURRENT_PAGE == "page1.php") {  /*page1.php is only for reference. add information when page is added.*/
+			<a class="nav-link <?php if ($CURRENT_PAGE == "transfer-money.php") {  /*page1.php is only for reference. add information when page is added.*/
                 ?>active<?php } ?>" href="/client/actions/transfer-money.php">Transfer Money</a>
 		</li>
 		<li>
-			<a class="nav-link <?php if ($CURRENT_PAGE == "page2.php") { /*page2.php is only for reference. add information when page is added.*/
+			<a class="nav-link <?php if ($CURRENT_PAGE == "future-payment.php") { /*page2.php is only for reference. add information when page is added.*/
                 ?>active<?php } ?>" href="/client/actions/future-payment.php">Pay Bills</a>
 		</li>
 		<li>
