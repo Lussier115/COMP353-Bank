@@ -31,13 +31,10 @@
             #handle future payments
         }
     }else{
-        $sql = "SELECT account_id FROM Account WHERE client_id = $client_id";
+        $sql = "SELECT account_id, balance FROM Account WHERE client_id = $client_id";
         $result = mysqli_query($db,$sql);
-        $account_ids = []; 
-        #takes the sql querry results and puts it into an array
         while(($row = mysqli_fetch_array($result))) {
-            #$account_ids.push($row);
-            array_push($account_ids,$row['account_id']);
+            $account_ids[] = $row;
         }
     }
 
@@ -49,6 +46,14 @@
 <head>
 	<?php include("../../includes/head-tag-contents.php");?>
 </head>
+<style>
+    form{
+        margin: 20px;
+    }
+    button{
+        margin: 10px;
+    }
+</style>
 <body>
 
 <?php include("../../includes/header.php");?>
@@ -68,7 +73,7 @@
         Pay from which account
         <select name = "from_account">
             <?php foreach($account_ids as $account_id): ?>
-                <option value = "<?php echo $account_id;?>"><?php echo $account_id; ?></option>
+                <option value = "<?php echo $account_id[0];?>"><?php echo $account_id[0]; echo "(".$account_id[1]."$)" ?></option>
             <?php endforeach; ?>
         </select><br>
         <button type = "submit">Pay Now</button>
@@ -79,6 +84,12 @@
         <input type="checkbox" name="house" value="house">House: 1000$<br>
         <input type="checkbox" name="car" value="car">Car: 150$<br>
         <input type="hidden" name="action" value="pay_future">
+        Pay from which account
+        <select name = "from_account">
+            <?php foreach($account_ids as $account_id): ?>
+                <option value = "<?php echo $account_id[0];?>"><?php echo $account_id[0]; echo "(".$account_id[1]."$)" ?></option>
+            <?php endforeach; ?>
+        </select><br>
         <button type = "submit">Pay Monthly</button>
     </form>
     <?php elseif($transfer_error) : ?>
