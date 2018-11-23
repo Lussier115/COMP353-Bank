@@ -10,7 +10,9 @@ include('../config.php');
         $_SESSION[profile_type]="business";
     }
 
-
+//header("Location:client-home.php");
+//exit;
 
 ?>
+
 

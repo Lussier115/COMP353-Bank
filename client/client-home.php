@@ -1,16 +1,23 @@
+<?php include('../session.php')?>
+<?php
 
-<?php include('../session.php');
+include('../config.php');
+//print("page is running");
+//if ($_SERVER["REQUEST_METHOD"] == "POST"){
+//    print("form going through");
+//    print($_SESSION['profile_type']);
+//    if ($_SESSION['profile_type']=="business"){
+//        print("$$$$");
+//        $_SESSION['profile_type']="personal";
+//    }else{
+//        $_SESSION['profile_type']="business";
+//    }
+//    print($_SESSION['profile_type']);
+//   // print ("hello");
+//    $profile_value = $_SESSION['profile_type'];
+//}
 
-if ($_SERVER["REQUEST_METHOD"] == "POST"){
-
-    if ($_SESSION[profile_type]=="business"){
-        $_SESSION[profile_type]="personal";
-    }elseif($_SESSION[profile_type]=="personal"){
-        $_SESSION[profile_type]="business";
-    }
-
-}
-
+//checked="<?php echo $profile_value == "business";
 
 
 
@@ -33,7 +40,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
 	<p>Have all the client actions here</p>
 
 
-    <form action="client-home.php" method="post">
+    <form action="checkbox-form.php" method="post">
         <label class="switch">
             <input type="checkbox" name= "account_type" id="togBtn" onChange="this.form.submit()">
             <div class="slider round" ><!--ADDED HTML --><span class="on">Business</span><span class="off">   Personal</span><!--END--></div>
