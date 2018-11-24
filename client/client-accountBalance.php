@@ -21,12 +21,11 @@
 <body>
 <?php include("../includes/header.php"); ?>
 <?php include("client-nav.php"); ?>
-<div style="padding-left: 50px">
+<div class="container">
 	<h1>Account Balance</h1>
 
-
     <?php
-        echo "<table border='' style='width: 25%'>";
+        echo "<table border=''>";
         echo "<tr> <th>ACCOUNT</th><th>BALANCE</th><th>TYPE</th</tr>";
 
         if ($result->num_rows > 0) {
