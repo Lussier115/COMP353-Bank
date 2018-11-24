@@ -1,3 +1,6 @@
+<style>
+	<?php include('style.css') ?>
+</style>
 <div class="header">
 
     <div class="container-header">
@@ -18,11 +21,3 @@
 
     <a class="nav-link" href="../index.php"><h1>Bank Management System</h1></a>
 </div>
-
-<style>
-    .container-header {
-        float: right;
-        max-width: fit-content;
-        margin-top: -30px;
-    }
-</style>

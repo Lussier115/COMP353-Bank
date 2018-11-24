@@ -1,0 +1,44 @@
+.container-header {
+    float: right;
+    max-width: fit-content;
+    margin-top: -30px;
+}
+
+button, input[type=button], input[type=submit] {
+    background-color: white;
+    border-radius: 10px;
+    color: black;
+    border: 2px solid #007bff;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin: 4px 2px;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+
+button:hover, input[type=button]:hover, input[type=submit]:hover {
+    background-color: #929292;
+    color: white;
+}
+
+body{
+    font-family: monospace;
+}
+
+#main-content {
+    margin-top:20px;
+}
+.footer {
+    bottom:0;
+    width:100%;
+    height:20px;
+    text-align: center;
+}
+
+.header {
+    margin-bottom: 2rem;
+    background-color: #929292;
+    padding: 3rem 2rem;
+}
