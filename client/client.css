@@ -1,79 +1,55 @@
-.switch {
+.account_selection {
+    display: block;
     position: relative;
-    display: inline-block;
-    width: 125px;
-    height: 34px;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 15px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
-.switch input {display:none;}
-
-.slider {
+.account_selection input {
     position: absolute;
+    opacity: 0;
     cursor: pointer;
+}
+
+.radiobutton {
+    position: absolute;
     top: 0;
     left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: #07c6ca;
-    -webkit-transition: .4s;
-    transition: .4s;
+    height: 15px;
+    width: 15px;
+    background-color: #eee;
+    border-radius: 50%;
 }
 
-.slider:before {
-    position: absolute;
+.account_selection:hover input ~ .radiobutton {
+    background-color: #ccc;
+}
+
+.account_selection input:checked ~ .radiobutton {
+    background-color: #007bff;
+}
+
+.radiobutton:after {
     content: "";
-    height: 26px;
-    width: 26px;
-    left: 4px;
-    bottom: 4px;
-    background-color: white;
-    -webkit-transition: .4s;
-    transition: .4s;
-}
-
-input:checked + .slider {
-    background-color: #2cb98b;
-}
-
-input:focus + .slider {
-    box-shadow: 0 0 1px #2196F3;
-}
-
-input:checked + .slider:before {
-    -webkit-transform: translateX(90px);
-    -ms-transform: translateX(90px);
-    transform: translateX(90px);
-}
-
-/*------ ADDED CSS ---------*/
-.on
-{
+    position: absolute;
     display: none;
 }
 
-.on, .off
-{
-    color: white;
-    position: absolute;
-    transform: translate(-50%,-50%);
-    top: 50%;
-    left: 50%;
-    font-size: 10px;
-    font-family: Verdana, sans-serif;
+.account_selection input:checked ~ .radiobutton:after {
+    display: block;
 }
 
-input:checked+ .slider .on
-{display: block;}
-
-input:checked + .slider .off
-{display: none;}
-
-/*--------- END --------*/
-
-/* Rounded sliders */
-.slider.round {
-    border-radius: 34px;
+.account_selection .radiobutton:after {
+    top: 4px;
+    left: 4px;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #929292;
 }
-
-.slider.round:before {
-    border-radius: 50%;}
