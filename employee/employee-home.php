@@ -11,8 +11,7 @@
 <?php include("employee-nav.php");?>
 
 <div class="container" id="main-content">
-	<h2>Employee Account</h2>
-	<p>Have all the employee actions here</p>
+	<h2>Employee Account </h2>
 </div>
 
 <?php include("../includes/footer.php");?>
