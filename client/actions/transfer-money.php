@@ -11,26 +11,26 @@
         $from_account = $_POST['from_account'];
         $to_account = $_POST['to_account'];
 
-        $sql = "SELECT balance FROM Account WHERE account_id = $from_account AND client_id = $client_id";
+        $sql = "SELECT balance FROM mec353_2.account WHERE account_id = $from_account AND client_id = $client_id";
         $result = mysqli_query($db,$sql);
         $amount_in_from_account = mysqli_fetch_array($result)['balance'];
         if($amount_in_from_account > $transfer_amount){
             //remove x amount in 'from_account'
             $from_account_new_balance = $amount_in_from_account - $transfer_amount;
-            mysqli_query($db, "UPDATE Account SET balance = $from_account_new_balance WHERE account_id = $from_account AND client_id = $client_id");
+            mysqli_query($db, "UPDATE mec353_2.account SET balance = $from_account_new_balance WHERE account_id = $from_account AND client_id = $client_id");
             
             //add x amount in 'to_account
-            $sql = "SELECT balance FROM Account WHERE account_id = $to_account AND client_id = $client_id";
+            $sql = "SELECT balance FROM mec353_2.account WHERE account_id = $to_account AND client_id = $client_id";
             $result = mysqli_query($db,$sql);
             $amount_in_to_account = mysqli_fetch_array($result)['balance'];
             $to_account_new_balance = $amount_in_to_account + $transfer_amount;
-            mysqli_query($db,"UPDATE Account SET balance = $to_account_new_balance WHERE account_id = $to_account AND client_id = $client_id");
+            mysqli_query($db,"UPDATE mec353_2.account SET balance = $to_account_new_balance WHERE account_id = $to_account AND client_id = $client_id");
             $money_transfer_success = true;
         }else{
             $is_error = true;
         }
     }else{
-        $sql = "SELECT account_id, balance FROM Account WHERE client_id = $client_id";
+        $sql = "SELECT account_id, balance FROM mec353_2.account WHERE client_id = $client_id";
         $result = mysqli_query($db,$sql);
         while(($row = mysqli_fetch_array($result))) {
             $account_ids[] = $row;
@@ -102,12 +102,12 @@
             <button type = "submit">Transfer</button>
         </form>
     </div>
+    <?php elseif($is_error) : ?>
+		<h2 style="text-align: center;">Not Enough Money</h2>
+    <?php else : ?>
+		<h2 style="text-align: center;">Money Transfer Success!</h2>
+    <?php endif; ?>
 </div>
-<?php elseif($is_error) : ?>
-    <h1>Not Enough Money</h1>
-<?php else : ?>
-    <h1>Money Transfer Success!</h1>
-<?php endif; ?>
 
 <?php include("../../includes/footer.php");?>
 

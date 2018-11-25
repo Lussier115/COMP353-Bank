@@ -14,12 +14,12 @@
             if($_POST['car']){$to_pay += 150;}
             $from_account_id = $_POST['from_account'];
 
-            $sql = "SELECT balance FROM Account WHERE account_id = $from_account_id AND client_id = $client_id";
+            $sql = "SELECT balance FROM mec353_2.account WHERE account_id = $from_account_id AND client_id = $client_id";
             $result = mysqli_query($db,$sql);
             $account_balance  = mysqli_fetch_array($result)['balance'];
             if($account_balance > $to_pay){
                 $new_balance = $account_balance - $to_pay;
-                mysqli_query($db, "UPDATE Account SET balance = $new_balance WHERE account_id = $from_account_id AND client_id = $client_id");
+                mysqli_query($db, "UPDATE mec353_2.account SET balance = $new_balance WHERE account_id = $from_account_id AND client_id = $client_id");
                 $transfer_success = true;
             }else{
                 #ERROR: not enough money
@@ -30,7 +30,7 @@
             $future_payment_set = true;
         }
     }else{
-        $sql = "SELECT account_id, balance FROM Account WHERE client_id = $client_id";
+        $sql = "SELECT account_id, balance FROM mec353_2.account WHERE client_id = $client_id";
         $result = mysqli_query($db,$sql);
         while(($row = mysqli_fetch_array($result))) {
             $account_ids[] = $row;
