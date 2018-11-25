@@ -13,14 +13,14 @@ session_start();
 include('../config.php');
 include('../session.php');
 
-$sqlProfit = "SELECT DISTINCT account.balance, interest_rate.kind_of_service FROM interest_rate, account WHERE account.interest_rate_id = interest_rate.interest_rate_id AND (interest_rate.kind_of_service= 'checking' OR interest_rate.kind_of_service= 'saving' )";
+$sqlProfit = "SELECT DISTINCT mec353_2.account.balance, mec353_2.interest_rate.kind_of_service FROM mec353_2.interest_rate, mec353_2.account WHERE mec353_2.account.interest_rate_id = mec353_2.interest_rate.interest_rate_id AND (mec353_2.interest_rate.kind_of_service= 'checking' OR mec353_2.interest_rate.kind_of_service= 'saving' )";
 $resultProfit = mysqli_query($db, $sqlProfit);
-$sqlPSum = "SELECT SUM( account.balance) as totalProfit FROM interest_rate, account WHERE account.interest_rate_id = interest_rate.interest_rate_id AND (interest_rate.kind_of_service= 'checking' OR interest_rate.kind_of_service= 'saving' )";
+$sqlPSum = "SELECT SUM( mec353_2.account.balance) as totalProfit FROM mec353_2.interest_rate, mec353_2.account WHERE mec353_2.account.interest_rate_id = mec353_2.interest_rate.interest_rate_id AND (mec353_2.interest_rate.kind_of_service= 'checking' OR mec353_2.interest_rate.kind_of_service= 'saving' )";
 $resultPSum = mysqli_query($db, $sqlPSum);
 
-$sqlLoss = "SELECT DISTINCT account.balance, interest_rate.kind_of_service FROM interest_rate, account WHERE account.interest_rate_id = interest_rate.interest_rate_id AND (interest_rate.kind_of_service= 'credit' OR interest_rate.kind_of_service= 'credit_line' )";
+$sqlLoss = "SELECT DISTINCT mec353_2.account.balance, mec353_2.interest_rate.kind_of_service FROM mec353_2.interest_rate, mec353_2.account WHERE mec353_2.account.interest_rate_id = mec353_2.interest_rate.interest_rate_id AND (mec353_2.interest_rate.kind_of_service= 'credit' OR mec353_2.interest_rate.kind_of_service= 'credit_line' )";
 $resultLoss = mysqli_query($db, $sqlLoss);
-$sqlLSum = "SELECT SUM( account.balance) as totalLoss FROM interest_rate, account WHERE account.interest_rate_id = interest_rate.interest_rate_id AND (interest_rate.kind_of_service= 'credit' OR interest_rate.kind_of_service= 'credit_line' )";
+$sqlLSum = "SELECT SUM( mec353_2.account.balance) as totalLoss FROM mec353_2.interest_rate, mec353_2.account WHERE mec353_2.account.interest_rate_id = mec353_2.interest_rate.interest_rate_id AND (mec353_2.interest_rate.kind_of_service= 'credit' OR mec353_2.interest_rate.kind_of_service= 'credit_line' )";
 $resultLSum = mysqli_query($db, $sqlLSum);
 
 

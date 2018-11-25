@@ -5,7 +5,7 @@
 
     $current_client_id = $_SESSION['client_id'];
     $current_profile = $_SESSION['profile_type'];
-    $sql = "SELECT DISTINCT interest_rate.kind_of_service, account.balance, interest_rate.type_of_account FROM mec353_2.interest_rate, mec353_2.account WHERE account.client_id = '$current_client_id' AND interest_rate.interest_rate_id = account.interest_rate_id AND interest_rate.type_of_account = '$current_profile' ";
+    $sql = "SELECT DISTINCT mec353_2.interest_rate.kind_of_service, mec353_2.account.balance, mec353_2.interest_rate.type_of_account FROM mec353_2.interest_rate, mec353_2.account WHERE mec353_2.account.client_id = '$current_client_id' AND mec353_2.interest_rate.interest_rate_id = mec353_2.account.interest_rate_id AND mec353_2.interest_rate.type_of_account = '$current_profile' ";
 
     // AND interest_rate.type_of_account = ($current_profile)";
     $result = mysqli_query($db, $sql);
