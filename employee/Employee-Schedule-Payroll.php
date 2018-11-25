@@ -37,6 +37,16 @@
         #print($sickdays);
       }
 
+      $sql = "SELECT employee_id FROM mec353_2.schedule WHERE employee_id = $employee_id";
+      $result = mysqli_query($db,$sql);
+      
+      if (mysqli_num_rows($result)==0){
+        #print("Insert inputs in Employee Schedule table");
+        $sql = "INSERT INTO `mec353_2`.`schedule`(`employee_id`, `work_days_time`, `monthly_payroll`, `holidays`, `sickdays`) VALUES('$employee_id', '$work', '$payroll', '$holidays', '$sickdays')";
+
+        mysqli_query($db,$sql);
+        #print("DONE");
+    }
 
 
 ?>
