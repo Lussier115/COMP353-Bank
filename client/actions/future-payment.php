@@ -5,6 +5,7 @@
     $client_id = $_SESSION['client_id'];
     $transfer_success = false;
     $transfer_error = false;
+    $future_payment_set = false;
     if($_SERVER["REQUEST_METHOD"] == "POST") {
         if($_POST['action'] == "pay_now"){
             $to_pay = 0;
@@ -16,9 +17,6 @@
             $sql = "SELECT balance FROM Account WHERE account_id = $from_account_id AND client_id = $client_id";
             $result = mysqli_query($db,$sql);
             $account_balance  = mysqli_fetch_array($result)['balance'];
-
-            print("THIS IS THE ACCOUNT BALANCE CHOSEN");
-            print($account_balance);
             if($account_balance > $to_pay){
                 $new_balance = $account_balance - $to_pay;
                 mysqli_query($db, "UPDATE Account SET balance = $new_balance WHERE account_id = $from_account_id AND client_id = $client_id");
@@ -29,6 +27,7 @@
             }
         }else{
             #handle future payments
+            $future_payment_set = true;
         }
     }else{
         $sql = "SELECT account_id, balance FROM Account WHERE client_id = $client_id";
@@ -61,7 +60,7 @@
 
 
 <div class="container" id="main-content">
-    <?php if(!$transfer_success) : ?>
+    <?php if(!$transfer_success && !$future_payment_set && !$transfer_error) : ?>
 	<h2>Future Payments</h2>
     <form action = "" method = "post">
         <h3>Bills to Pay</h3>
@@ -93,7 +92,9 @@
         <button type = "submit">Pay Monthly</button>
     </form>
     <?php elseif($transfer_error) : ?>
-        <h1>Error Paying Bills</h1>
+        <h1>Not Enough Money</h1>
+    <?php elseif($future_payment_set) : ?>
+        <h1>Future Payment Set</h1>
     <?php else : ?>
         <h1>Bills Successfully Paid!</h1>
     <?php endif; ?>

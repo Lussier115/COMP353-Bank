@@ -71,7 +71,7 @@
 <?php include("../../includes/header.php");?>
 <?php include("../client-nav.php");?>
 
-<?php if(!$money_transfer_success) : ?>
+<?php if(!$money_transfer_success && !$is_error) : ?>
 <div class="container" id="main-content">
 	<h2>Transfer Money</h2>
 
@@ -104,7 +104,7 @@
     </div>
 </div>
 <?php elseif($is_error) : ?>
-    <h1>Error Transfering Money</h1>
+    <h1>Not Enough Money</h1>
 <?php else : ?>
     <h1>Money Transfer Success!</h1>
 <?php endif; ?>
