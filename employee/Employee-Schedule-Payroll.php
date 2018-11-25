@@ -48,6 +48,45 @@
         #print("DONE");
     }
 
+    else {
+        #print("Update Employee Schedule table with Inputs");
+
+        if(strlen($work)==0) {
+            #print("work empty string, don't update");
+        }
+            else {
+                #print("Update work_days_time in Employee Schedule table");
+                $sql1 = "UPDATE mec353_2.schedule SET work_days_time = '$work' WHERE `employee_id` = '$employee_id'";
+                mysqli_query($db,$sql1);
+            }
+
+        if(strlen($payroll)==0) {
+            #print("payroll empty string, don't update");
+        }
+            else {
+                #print("Update monthly_payroll in Employee Schedule table");
+                $sql2 = "UPDATE mec353_2.schedule SET monthly_payroll = '$payroll' WHERE `employee_id` = '$employee_id'";
+                mysqli_query($db,$sql2);
+            }
+        if(strlen($holidays)==0) {
+            #print("\n holidays empty string, don't update");
+        }
+            else {
+                #print("Update holidays in Employee Schedule table");
+                $sql3 = "UPDATE mec353_2.schedule SET holidays = '$holidays' WHERE `employee_id` = '$employee_id'";
+                mysqli_query($db,$sql3);
+            } 
+
+        if(strlen($sickdays)==0)  {
+            #print("sickdays empty string, don't update");
+        }
+            else {
+                #print("Update sickdays in Employee Schedule table");
+                $sql4 = "UPDATE mec353_2.schedule SET sickdays = '$sickdays' WHERE `employee_id` = '$employee_id'";
+                mysqli_query($db,$sql4);
+            } 
+    }
+}
 
 ?>
 
