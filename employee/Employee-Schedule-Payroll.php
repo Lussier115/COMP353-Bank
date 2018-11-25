@@ -1,7 +1,7 @@
-?php include('../../session.php')?>
+<?php include('../session.php')?>
 
 <?php 
-    include("../../config.php");
+    include("../config.php");
  
     
     if($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -46,13 +46,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <?php include("../../includes/head-tag-contents.php");?>
-    <link rel="stylesheet" type="text/css" href="../employee.css">
+    <?php include("../includes/head-tag-contents.php");?>
+    <link rel="stylesheet" type="text/css" href="employee.css">
 </head>
 <body>
 
-<?php include("../../includes/header.php");?>
-<?php include("../employee-nav.php");?>
+<?php include("../includes/header.php");?>
+<?php include("employee-nav.php");?>
 
 <div class="card"  id="">
     <div class="card-body">
@@ -81,7 +81,7 @@
     <div>
 </div>
 
-    <?php include("../../includes/footer.php");?>
+    <?php include("../includes/footer.php");?>
 
 </body>
 </html>
