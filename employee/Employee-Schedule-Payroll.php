@@ -1,3 +1,48 @@
+?php include('../../session.php')?>
+
+<?php 
+    include("../../config.php");
+ 
+    
+    if($_SERVER["REQUEST_METHOD"] == "POST") {
+    $employee_id = $_SESSION['employee_id'];
+    #print($employee_id);
+    $work = $payroll = $holidays = $sickdays = "";
+
+    if (empty($_POST["work"])) {
+        $work = "";
+      } else {
+        $work = mysqli_real_escape_string($db, $_POST["work"]);
+        #print($work);
+      }
+      
+    if (empty($_POST["payroll"])) {
+        $payroll = "";
+      } else {
+        $payroll = mysqli_real_escape_string($db, $_POST["payroll"]);
+        #print($work);
+      }
+
+    if (empty($_POST["holidays"])) {
+        $holidays = "";
+      } else {
+        $holidays = mysqli_real_escape_string($db, $_POST["holidays"]);
+        #print($holidays);
+      }
+    
+      if (empty($_POST["sickdays"])) {
+        $sickdays = "";
+      } else {
+        $sickdays = mysqli_real_escape_string($db, $_POST["sickdays"]);
+        #print($sickdays);
+      }
+
+
+
+?>
+
+
+
 <!DOCTYPE html>
 <html>
 <head>
