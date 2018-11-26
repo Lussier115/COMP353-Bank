@@ -33,7 +33,7 @@
             while ($row = $result->fetch_assoc()) {
 
                 print "<div>
-						<h2> Welcome " . $row['title'] . ", " . $row['first_name'] . "</h2>
+						<h2>" . $row['title'] . ", " . $row['first_name'] . "</h2>
 						<div class='employee-info'>
 							<label class='label-title'><strong> Your Employee Information:</strong></label><br />
 							<label> First Name: </label> " . $row['first_name'] . " <br />
