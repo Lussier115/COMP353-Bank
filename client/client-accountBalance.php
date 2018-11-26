@@ -5,7 +5,12 @@
 
     $current_client_id = $_SESSION['client_id'];
     $current_profile = $_SESSION['profile_type'];
-    $sql = "SELECT DISTINCT mec353_2.interest_rate.kind_of_service, mec353_2.account.balance, mec353_2.interest_rate.type_of_account FROM mec353_2.interest_rate, mec353_2.account WHERE mec353_2.account.client_id = '$current_client_id' AND mec353_2.interest_rate.interest_rate_id = mec353_2.account.interest_rate_id AND mec353_2.interest_rate.type_of_account = '$current_profile' ";
+    $sql = "SELECT DISTINCT interest_rate.kind_of_service,account.balance, charge_plan.limit, charge_plan.charge, charge_plan.option 
+			FROM mec353_2.interest_rate, mec353_2.account, mec353_2.charge_plan 
+			WHERE mec353_2.account.client_id = '$current_client_id' 
+			  AND mec353_2.interest_rate.interest_rate_id = mec353_2.account.interest_rate_id 
+			  AND mec353_2.interest_rate.type_of_account = '$current_profile'
+			  AND mec353_2.charge_plan.charge_plan_id = mec353_2.account.charge_plan_id";
 
     // AND interest_rate.type_of_account = ($current_profile)";
     $result = mysqli_query($db, $sql);
@@ -25,25 +30,27 @@
 
     <?php
         echo "<table border=''>";
-        echo "<tr> <th>ACCOUNT</th><th>BALANCE</th><th>TYPE</th</tr>";
+        echo "<tr> <th>Account</th><th>Balance</th><th> Limit</th><th>Charge</th><th>Option</th></tr>";
 
         if ($result->num_rows > 0) {
             // output data of each row
 
             while ($row = $result->fetch_assoc()) {
 
-                echo nl2br("\r\n ");
-                //  echo $row["kind_of_service"] . ": " . $row["balance"] . "  type of account:  " . $row["type_of_account"];
-                echo "<tr><td>" . $row['kind_of_service'] . "</td><td>" . $row['balance'] . "$" . "</td><td>" . $row['type_of_account'] . "</td></tr>";
+                echo "<tr><td>" . $row['kind_of_service'] . "</td><td>" . $row['balance'] . "$" . "</td><td>".$row['limit']."</td> <td>".$row['charge']. "$". "</td><td>".$row['option']."</td></tr>";
 
             }
+            echo "</table>";
         } else {
-            echo nl2br("\r\n ");
+            echo "</table>";
             echo "No Accounts to show";
 
         }
-        echo "</table>";
+
     ?>
+	<form action="/client/client-home.php">
+		<button type="submit"> Back</button>
+	</form>
 
 
 </div>

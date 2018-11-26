@@ -12,6 +12,7 @@
 
 <div class="container" id="main-content">
 	<h2>Employee Account </h2>
+
 </div>
 
 <?php include("../includes/footer.php");?>

@@ -42,3 +42,14 @@ body{
     background-color: #929292;
     padding: 3rem 2rem;
 }
+
+td, th {
+    text-align: center;
+    padding: 10px;
+    align-items: center;
+}
+
+table {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
