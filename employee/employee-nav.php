@@ -26,7 +26,7 @@ $CURRENT_PAGE = basename($_SERVER["PHP_SELF"]);
         </li>
         <li>
 			<a class="nav-link <?php if ($CURRENT_PAGE == "Employee-Schedule-Payroll.php") { /*page2.php is only for reference. add information when page is added.*/
-                ?>active<?php } ?>" href="/employee/Employee-Schedule-Payroll.php">Employee-Schedule-Payroll</a>
+                ?>active<?php } ?>" href="/employee/Employee-Schedule-Payroll.php">Employee Schedule Payroll</a>
 		</li>
     </ul>
 </div>
