@@ -3,9 +3,6 @@
     include("../config.php");
     include('../session.php');
 
-    if ($_SESSION['isAdmin'] == "0") {
-        header("location: /authentication/login.php");
-    }
 
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $client_id = $_POST['chosen_client'];
