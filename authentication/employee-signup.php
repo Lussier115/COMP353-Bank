@@ -1,4 +1,4 @@
-<form action = "" method = "post" class = "form-box" id="account">
+<form  style=" background-color: rgba(255, 255, 255, 0.5);" action = "" method = "post" class = "form-box" id="account">
     <h3>For Employees</h3>
     <label>Email  :</label><input class="form-control2" type = "email_address" name = "email_address" class = "box"/><br /><br />
     <label>Password  :</label><input class="form-control2" type = "password" name = "password" class = "box" /><br/><br/>

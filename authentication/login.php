@@ -53,7 +53,7 @@
 
         <div class="container" id="main-content">
             <h2>Sign In</h2>
-            <form action = "" method = "post" class = "form-box">
+            <form  style=" background-color: rgba(255, 255, 255, 0.5);" action = "" method = "post" class = "form-box">
                 <h3>For Employees</h3>
                 <label >Email  :</label><input class="form-control2" type = "text" name = "email" class = "box"/><br /><br />
                 <label>Password  :</label><input  class="form-control2" type = "password" name = "password" class = "box" /><br/><br/>
@@ -62,7 +62,7 @@
             </form>
 
             
-            <form action = "" method = "post" class = "form-box">
+            <form style=" background-color: rgba(255, 255, 255, 0.5);" action = "" method = "post" class = "form-box">
                 <h3>For Clients</h3>
                 <label>Email  :</label><input  class="form-control2" type = "text" name = "email" class = "box"/><br /><br />
                 <label>Password  :</label><input   class="form-control2" type = "password" name = "password" class = "box" /><br/><br/>

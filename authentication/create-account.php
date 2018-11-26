@@ -56,7 +56,7 @@
 
             <?php if($_SESSION['isAdmin'] == '1') include('employee-signup.php'); ?>
 
-            <form action = "" method = "post" class = "form-box" id="account">
+            <form  style=" background-color: rgba(255, 255, 255, 0.5);" action = "" method = "post" class = "form-box" id="account">
                 <h3>For Clients</h3>
                 <label>First Name  :</label><input class="form-control2"  type = "text" name = "first_name" class = "box"/><br /><br />
                 <label>Last Name  :</label><input class="form-control2"  type = "text" name = "last_name" class = "box"/><br /><br />

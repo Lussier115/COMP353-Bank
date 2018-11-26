@@ -1,5 +1,6 @@
 .card {
     margin: auto;
+    margin-top: 10px;
     max-width: 700px;
     position: relative;
     display: -ms-flexbox;
@@ -7,18 +8,19 @@
     -ms-flex-direction: column;
     flex-direction: column;
     word-wrap: break-word;
-    background-color: #fff;
+    background-color: rgba(255, 255, 255, 0.5);
     background-clip: border-box;
     border: 1px solid rgba(0, 0, 0, 0.125);
     border-radius: 0.25rem;
 
-  }
-  
-  .card-body {
+}
+
+.card-body {
     -ms-flex: 1 1 auto;
     flex: 1 1 auto;
-    padding: 1.25rem;
-  }
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.5);
+}
 
 .form-control {
     display: block;
@@ -27,33 +29,34 @@
     font-size: 1rem;
     line-height: 1.5;
     color: #150ba5;
-    background-color: #fff;
     background-clip: padding-box;
     border: 1px solid #527ca7;
     border-radius: 0.25rem;
     transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-  }
-  
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
 .form-group {
     margin-bottom: 1rem;
-  }
+    background-color: rgba(255, 255, 255, 0.5);
+}
 
-  .text-center {
+.text-center {
     text-align: center !important;
-  }
+}
 
-  .btn-info {
+.btn-info {
     color: #fff;
     background-color: #333cb6;
     border-color: #333cb6;
-  }
-  
-  .btn-info:hover {
+}
+
+.btn-info:hover {
     color: #fff;
     background-color: #25316b;
     border-color: #25316b;
-  }
-  
-  .btn-info:focus, .btn-info.focus {
+}
+
+.btn-info:focus, .btn-info.focus {
     box-shadow: 0 0 0 0.2rem rgba(23, 47, 184, 0.5);
-  }
+}
