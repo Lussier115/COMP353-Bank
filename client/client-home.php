@@ -19,6 +19,10 @@
 			WHERE mec353_2.client.client_id = '$current_client_id'";
 
     $result = mysqli_query($db, $sql);
+
+    $sqlServices="SELECT DISTINCT service.service_type FROM mec353_2.service, mec353_2.service_used WHERE service_used.client_id='$current_client_id' AND service_used.service_id=service.service_id";
+    $resultServices = mysqli_query($db, $sqlServices);
+
 ?>
 
 
@@ -35,12 +39,15 @@
 <?php include("../includes/header.php"); ?>
 <?php include("client-nav.php"); ?>
 
-<div class="container" id="main-content">
-    <?php
-        if ($result->num_rows > 0) {
-            while ($row = $result->fetch_assoc()) {
 
-                print "<div>
+<div class="container" id="main-content">
+    <table >
+        <tr>
+            <td style="text-align:left"><?php
+                if ($result->num_rows > 0) {
+                    while ($row = $result->fetch_assoc()) {
+
+                        print "<div>
 						<h2> Welcome " . $row['first_name'] . "</h2>
 						<div class='employee-info'>
 							<label class='label-title'><strong> Your Information:</strong></label><br />
@@ -55,12 +62,47 @@
 						</div>
 					</div>";
 
-            }
-        }
-    ?>
+                    }
+                }
+                ?></td>
+            <td><label class='label-title'><strong> Services Used:</strong></label><br />
 
 
-	<form class="account_type" method="post">
+                <?php
+                echo "<table  border=''>";
+                echo "<tr> <th>Service</th></tr>";
+
+                if ($resultServices->num_rows > 0) {
+                    // output data of each row
+
+                    while ($row = $resultServices->fetch_assoc()) {
+
+                        echo "<tr><td>" . $row['service_type'] . "</td></tr>";
+
+                    }
+                    echo "</table>";
+                } else {
+                    echo "</table>";
+                    echo "Not using any services";
+
+                }
+
+
+                ?>
+            </td>
+
+
+        </tr>
+
+
+
+
+    </table>
+
+
+
+
+    <form class="account_type" method="post">
 		<h4>Select account type to view</h4>
 		<label class="account_selection">Personal
 			<input type="radio" name="personal">
@@ -73,6 +115,7 @@
 		<input type="submit" value="View Balance"/>
 	</form>
 </div>
+
 
 <?php include("../includes/footer.php"); ?>
 
