@@ -53,3 +53,17 @@ table {
     margin-top: 10px;
     margin-bottom: 10px;
 }
+
+.employee-info, .employee-schedule {
+    margin: 10px;
+}
+
+label.label-title {
+    padding-bottom: 10px;
+    text-decoration: underline;
+}
+
+.employee-info label, .employee-schedule label {
+    font-style: italic;
+    font-weight: bolder;
+}

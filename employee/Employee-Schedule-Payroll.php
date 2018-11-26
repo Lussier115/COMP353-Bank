@@ -3,7 +3,8 @@
     include('../session.php');
 
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        $employee_id = $_SESSION['employee_id'];
+        $employee_id = $_POST['chosen_employee'];
+
         #print($employee_id);
         $work = $payroll = $holidays = $sickdays = "";
 
@@ -96,7 +97,7 @@
 
 <div class="card" id="">
 	<div class="card-body">
-		<form action="" method="post">
+		<form action="" method="post" id="payroll">
 			<legend class="text-center">Employee Schedule, Payroll, Holidays & Sickdays</legend>
 			<div class="form-group">
 				<label for="work">Work Day Schedule</label>
@@ -115,7 +116,10 @@
 				<input type="text" class="form-control" name="sickdays" placeholder="Ex: Feb 13, May 9, May 10">
 			</div>
 
-			<button type="submit" class="btn btn-info">Submit</button>
+			<label for="chosen_employee">Employee</label> <br/>
+			<?php include('employee-selection.php') ?>
+
+			<input type="submit" class="btn btn-info">
 		</form>
 		<div>
 		</div>
