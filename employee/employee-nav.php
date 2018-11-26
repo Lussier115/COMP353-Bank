@@ -1,4 +1,5 @@
 <?php
+session_start();
 $CURRENT_PAGE = basename($_SERVER["PHP_SELF"]);
 ?>
 
@@ -16,17 +17,19 @@ $CURRENT_PAGE = basename($_SERVER["PHP_SELF"]);
             <a class="nav-link <?php if (strpos($CURRENT_PAGE,"home") == true) {
                 ?>active<?php } ?>" href="/account.php">Account</a>
         </li>
+	    <?php if($_SESSION['isAdmin'] == "1"){?>
         <li>
             <a class="nav-link <?php if ($CURRENT_PAGE == "employee-bankBalance.php") {  /*page1.php is only for reference. add information when page is added.*/
                 ?>active<?php } ?>" href="/employee/employee-bankBalance.php">Profits & Losses</a>
         </li>
         <li>
-            <a class="nav-link <?php if ($CURRENT_PAGE == "page2.php") { /*page2.php is only for reference. add information when page is added.*/
-                ?>active<?php } ?>" href="">Employee Page 2</a>
-        </li>
-        <li>
 			<a class="nav-link <?php if ($CURRENT_PAGE == "Employee-Schedule-Payroll.php") { /*page2.php is only for reference. add information when page is added.*/
-                ?>active<?php } ?>" href="/employee/Employee-Schedule-Payroll.php">Employee Schedule Payroll</a>
+                ?>active<?php } ?>" href="/employee/Employee-Schedule-Payroll.php">Employee Schedule & Payroll</a>
 		</li>
+	    <li>
+		    <a class="nav-link <?php if ($CURRENT_PAGE == "employee-view-all.php") { /*page2.php is only for reference. add information when page is added.*/
+                ?>active<?php } ?>" href="/employee/employee-view-all.php">View All Employees</a>
+	    </li>
+	    <?php }?>
     </ul>
 </div>

@@ -29,7 +29,7 @@
 	<h1>Account Balance</h1>
 
     <?php
-        echo "<table border=''>";
+        echo "<table class=". $_SESSION['profile_type']." border=''>";
         echo "<tr> <th>Account</th><th>Balance</th><th> Limit</th><th>Charge</th><th>Option</th></tr>";
 
         if ($result->num_rows > 0) {
