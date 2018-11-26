@@ -19,5 +19,5 @@
         </ul>
     </div>
 
-    <a class="nav-link" href="/index.php"><h1>Bank Management System</h1></a>
+    <a class="nav-link" href="/index.php"><h1>Bank</h1></a>
 </div>

@@ -91,3 +91,19 @@ label.label-title {
 .container-header .nav-item {
     background-color: rgba(255, 255, 255, 0.5);
 }
+
+.branch-info {
+    padding: 10px;
+    max-width: fit-content;
+    background-color: rgba(255,255,255,0.2);
+    border-radius: 5px;
+    margin: 10px;
+}
+
+.branch-info label {
+    font-weight: bold;
+}
+
+.branch{
+    display: flex;
+}
