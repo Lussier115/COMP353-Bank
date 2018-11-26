@@ -7,8 +7,8 @@
 </head>
 <body>
 
-<?php include("includes/header.php");?>
 
+<?php include("includes/header.php");?>
 <?php
 
 if (isset($_SESSION['session_token'])) {

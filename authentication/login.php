@@ -55,8 +55,8 @@
             <h2>Sign In</h2>
             <form action = "" method = "post" class = "form-box">
                 <h3>For Employees</h3>
-                <label>Email  :</label><input type = "text" name = "email" class = "box"/><br /><br />
-                <label>Password  :</label><input type = "password" name = "password" class = "box" /><br/><br/>
+                <label >Email  :</label><input class="form-control2" type = "text" name = "email" class = "box"/><br /><br />
+                <label>Password  :</label><input  class="form-control2" type = "password" name = "password" class = "box" /><br/><br/>
                 <input type="hidden" name="action" value="employee">
                 <input type = "submit" value = " Submit "/><br />
             </form>
@@ -64,8 +64,8 @@
             
             <form action = "" method = "post" class = "form-box">
                 <h3>For Clients</h3>
-                <label>Email  :</label><input type = "text" name = "email" class = "box"/><br /><br />
-                <label>Password  :</label><input type = "password" name = "password" class = "box" /><br/><br/>
+                <label>Email  :</label><input  class="form-control2" type = "text" name = "email" class = "box"/><br /><br />
+                <label>Password  :</label><input   class="form-control2" type = "password" name = "password" class = "box" /><br/><br/>
                 <input type="hidden" name="action" value="client">
                 <input type = "submit" value = " Submit "/><br />
             </form>

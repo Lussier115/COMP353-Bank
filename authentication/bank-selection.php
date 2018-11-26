@@ -12,7 +12,7 @@
     $result = mysqli_query($db, $sql);
 ?>
 
-<select name="bank_location" form="account">
+<select name="bank_location" form="account" class="form-control2" >
     <?php while ($row = mysqli_fetch_array($result)):; ?>
 		<option value=<?php echo $row[0]; ?>><?php echo $row[1]; ?></option>
     <?php endwhile; ?>
