@@ -18,20 +18,20 @@
                 ?>active<?php } ?>" href="/account.php">Account</a>
 		</li>
 		<li>
-			<a class="nav-link <?php if ($CURRENT_PAGE == "employee-info-update.php") { /*page2.php is only for reference. add information when page is added.*/
-                ?>active<?php } ?>" href="/employee/employee-info-updates.php">Updates</a>
+			<a class="nav-link <?php if ($CURRENT_PAGE == "employee-info-update.php") {
+                ?>active<?php } ?>" href="/employee/employee-info-updates.php"> Client Updates</a>
 		</li>
         <?php if ($_SESSION['isAdmin'] == "1") { ?>
 			<li>
-				<a class="nav-link <?php if ($CURRENT_PAGE == "employee-bankBalance.php") {  /*page1.php is only for reference. add information when page is added.*/
+				<a class="nav-link <?php if ($CURRENT_PAGE == "employee-bankBalance.php") {
                     ?>active<?php } ?>" href="/employee/employee-bankBalance.php">Profits & Losses</a>
 			</li>
 			<li>
-				<a class="nav-link <?php if ($CURRENT_PAGE == "Employee-Schedule-Payroll.php") { /*page2.php is only for reference. add information when page is added.*/
+				<a class="nav-link <?php if ($CURRENT_PAGE == "Employee-Schedule-Payroll.php") {
                     ?>active<?php } ?>" href="/employee/Employee-Schedule-Payroll.php">Employee Schedule & Payroll</a>
 			</li>
 			<li>
-				<a class="nav-link <?php if ($CURRENT_PAGE == "employee-view-all.php") { /*page2.php is only for reference. add information when page is added.*/
+				<a class="nav-link <?php if ($CURRENT_PAGE == "employee-view-all.php") {
                     ?>active<?php } ?>" href="/employee/employee-view-all.php">View All Employees</a>
 			</li>
         <?php } ?>
