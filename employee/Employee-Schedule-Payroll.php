@@ -122,7 +122,7 @@
 			</div>
 
 			<label for="chosen_employee">Employee</label> <br/>
-			<?php include('employee-selection.php') ?>
+			<?php include('selection/employee-selection.php') ?>
 
 			<input type="submit" class="btn btn-info">
 		</form>
