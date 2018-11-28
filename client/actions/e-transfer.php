@@ -1,3 +1,22 @@
+<?php include('../../session.php')?>
+
+<?php 
+    include("../../config.php");
+    $money_transfer_success = false;
+    $not_enough_funds = false;
+    $negative_transfer_amount = false;
+    $is_phone_empty = false;
+    $is_email_empty = false;
+    $is_email_phone_empty = false;
+    $is_email_phone_different_client = false;
+    $is_recipient_client_id_empty = false;
+    $transfer_client_id = null;
+    $transfer_client_id2 = null;
+    $client_id = $_SESSION['client_id'];
+    #print(' Id of Client: ');
+    #print($client_id);
+
+    
 <!DOCTYPE html>
 <html>
 <head>
