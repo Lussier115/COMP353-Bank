@@ -59,6 +59,73 @@
     #print(' amount_in_from_account: ');
     #print($amount_in_from_account);
 
+    if($amount_in_from_account > $transfer_amount && !$is_email_phone_empty && !$negative_transfer_amount){
+
+        #Get the client_id for the provided email or/and the provided phone number
+        $sql1 = "SELECT client_id FROM mec353_2.client WHERE email = '$email'"; 
+        $sql2 = "SELECT client_id FROM mec353_2.client WHERE phone = '$phone'";
+        $result1 = mysqli_query($db,$sql1);
+        $result2 = mysqli_query($db,$sql2);
+
+        if(!$is_email_empty ) {
+            $transfer_client_id = mysqli_fetch_array($result1)['client_id'];
+        }
+        
+        if(!$is_phone_empty) {
+                $transfer_client_id2 = mysqli_fetch_array($result2)['client_id'];        
+        }
+            
+            #Verify if client_id exist.
+            if (($transfer_client_id == null && $transfer_client_id2 == null) || ($transfer_client_id == null && $transfer_client_id2 == "") || ($transfer_client_id == "" && $transfer_client_id2 == NULL) || ($transfer_client_id == "" && $transfer_client_id2 == ""))
+            {
+                #print('Recipient does not exist');
+                $is_recipient_client_id_empty = true;
+            }
+            
+             #Verify If client_id found through email & client_id found through phone number is different when user provides both. 
+            elseif (($transfer_client_id != $transfer_client_id2) && (!$is_email_empty && !$is_phone_empty)) {
+                #print(' Phone And Email belong to different Recipient OR Entered invalid phone/username');
+                $is_email_phone_different_client = true;
+            }
+            
+            else{
+                
+                if($transfer_client_id == null || $transfer_client_id == "" ) {
+                    $transfer_client_id = $transfer_client_id2;
+                }
+                
+                $sql = "SELECT balance FROM mec353_2.account WHERE client_id = $transfer_client_id";
+                $result = mysqli_query($db,$sql);
+                $amount_in_to_account = mysqli_fetch_array($result)['balance'];
+                #print("amount_in_to_account ");
+                #print($amount_in_to_account);
+
+                //remove x amount in 'from_account' for client
+                $from_account_new_balance = $amount_in_from_account - $transfer_amount;
+                mysqli_query($db, "UPDATE mec353_2.account SET balance = $from_account_new_balance WHERE account_id = $from_account AND client_id = $client_id");
+                #print(' from_account_new_balance: ');
+                #print($from_account_new_balance);
+
+                #Add x amount to first account (main account) of the recipient.
+                $to_account_new_balance = $amount_in_to_account + $transfer_amount;
+                #print("to_account_new_balance ");
+                #print($to_account_new_balance);
+                mysqli_query($db,"UPDATE mec353_2.account SET balance = $to_account_new_balance WHERE client_id = $transfer_client_id LIMIT 1");
+                $money_transfer_success = true; 
+            }
+   
+    }else{
+        $not_enough_funds = true;
+    }
+}else{
+    $sql = "SELECT account_id, balance FROM mec353_2.account WHERE client_id = $client_id";
+    $result = mysqli_query($db,$sql);
+    while(($row = mysqli_fetch_array($result))) {
+        $account_ids[] = $row;
+    }
+}
+
+?>
 
 <!DOCTYPE html>
 <html>
