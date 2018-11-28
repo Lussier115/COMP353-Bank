@@ -191,7 +191,24 @@
         </form>
     </div>
     
- 
+    <?php elseif($negative_transfer_amount) : ?>
+        <h2 style="text-align: center;">The Provided amount is negative</h2>
+
+        <?php elseif($is_email_phone_empty) : ?>
+            <h2 style="text-align: center;">No Email Address And Phone Address Provided</h2>
+
+            <?php elseif($is_email_phone_different_client) : ?>
+            <h2 style="text-align: center;"> Phone And Email belong to different Recipient OR Entered invalid phone/username</h2>
+                
+                <?php elseif($is_recipient_client_id_empty) : ?>
+                <h2 style="text-align: center;">No Recipient Found With The Provided Information</h2>
+                    
+                    <?php elseif($not_enough_funds) : ?>
+                    <h2 style="text-align: center;">Not Enough Money</h2>
+                        
+                        <?php else : ?>
+                            <h2 style="text-align: center;">Money Transfer Success!</h2>
+                        <?php endif; ?>
 </div>
 
 <?php include("../../includes/footer.php");?>
