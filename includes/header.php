@@ -18,6 +18,9 @@
             </li>
         </ul>
     </div>
+	<span>
+		<a href="/index.php"><img src="/includes/img/logo.png" alt="logo">
+		<h1> Bank </h1></a>
+	</span>
 
-    <a class="nav-link" href="/index.php"><h1>Bank</h1></a>
 </div>

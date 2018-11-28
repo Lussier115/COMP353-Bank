@@ -43,13 +43,18 @@ html{
     width:100%;
     height:20px;
     text-align: center;
-    position: absolute;
+    position: fixed;
 }
 
 .header {
     margin-bottom: 2rem;
     padding: 3rem 2rem;
     background-color: rgba(255, 255, 255, 0.5);
+}
+
+.header h1 {
+    margin-bottom: -20px;
+    margin-left: 90px;
 }
 
 td, th {
@@ -107,3 +112,10 @@ label.label-title {
 .branch{
     display: flex;
 }
+img {
+    position: absolute;
+    width: 90px;
+    left: 10px;
+    top: 8px;
+}
+
