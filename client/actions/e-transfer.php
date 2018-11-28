@@ -16,7 +16,50 @@
     #print(' Id of Client: ');
     #print($client_id);
 
+    //form
+    if($_SERVER["REQUEST_METHOD"] == "POST") {
+    $transfer_amount = $_POST['transfer_amount'];
+    #print(' transfer_amount: ');
+    #print($transfer_amount);
+
+    if($transfer_amount < 0 )
+    {
+        #print("Amount entered is negative");
+        $negative_transfer_amount = true;
+    }
+
+    $from_account = $_POST['from_account'];
+    #print(' from_account: ');
+    #print($from_account);
+
+    $email = $_POST['email'];
+    #print(' email: ');
+    #print($email);
+    if ($email == ""){
+        #print("email is empty   ");
+        $is_email_empty = true;
+    }
+
+    $phone = $_POST['phone'];
+    #print(' phone: ');
+    #print($phone);
+    if ($phone == ""){
+        #print("phone is empty   ");
+        $is_phone_empty = true;
+    }
     
+    if ($email == "" & $phone == ""){
+        #print("email and phone are empty");
+        $is_email_phone_empty = true;
+    }
+
+    $sql = "SELECT balance FROM mec353_2.account WHERE account_id = $from_account AND client_id = $client_id";
+    $result = mysqli_query($db,$sql);
+    $amount_in_from_account = mysqli_fetch_array($result)['balance'];
+    #print(' amount_in_from_account: ');
+    #print($amount_in_from_account);
+
+
 <!DOCTYPE html>
 <html>
 <head>
