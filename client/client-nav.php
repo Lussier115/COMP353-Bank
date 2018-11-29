@@ -24,5 +24,9 @@
 			<a class="nav-link <?php if ($CURRENT_PAGE == "future-payment.php") { /*page2.php is only for reference. add information when page is added.*/
                 ?>active<?php } ?>" href="/client/actions/future-payment.php">Pay Bills</a>
 		</li>
+		<li>
+		<a class="nav-link <?php if ($CURRENT_PAGE == "e-transfer.php") { /*Refers to E-Transfer.*/
+                ?>active<?php } ?>" href="/client/actions/e-transfer.php">E-Transfer</a>
+		</li>
 	</ul>
 </div>
