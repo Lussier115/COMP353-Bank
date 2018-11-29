@@ -1,3 +1,75 @@
+<?php include('../../session.php')?>
+
+<?php 
+    include("../../config.php");
+    $money_transfer_success = false;
+    $negative_transfer_amount = false;
+    $zero_transfer_amount = false;
+    $not_enough_funds = false;
+    $deposit = false;
+    $withdraw = false;
+    $client_id = $_SESSION['client_id'];
+    //form
+    if($_SERVER["REQUEST_METHOD"] == "POST") {
+        $transfer_amount = $_POST['transfer_amount'];
+        $to_account = $_POST['to_account'];
+        $transaction_type = $_POST['transaction_type'];
+
+        if ($transaction_type == "deposit")
+        {
+            $deposit = true;
+        }
+
+        if ($transaction_type == "withdraw")
+        {
+            $withdraw = true;
+        }
+
+        if($transfer_amount < 0 )
+        {
+            #print("Amount entered is negative");
+            $negative_transfer_amount = true;
+        }
+
+            elseif($transfer_amount == 0){
+                $zero_transfer_amount = true;
+            }
+            
+            else{
+                #Retrieve Amount in account
+                $sql = "SELECT balance FROM mec353_2.account WHERE account_id = $to_account AND client_id = $client_id";
+                $result = mysqli_query($db,$sql);
+                $amount_in_to_account = mysqli_fetch_array($result)['balance'];
+
+                if(($amount_in_to_account < $transfer_amount) && $withdraw)
+                {
+                    $not_enough_funds = true;
+                }
+                else {
+                    #remove amount from account
+                    if($withdraw){
+                        $to_account_new_balance = $amount_in_to_account - $transfer_amount;
+                    }
+
+                    #add amount to account
+                    if($deposit) {
+                        $to_account_new_balance = $amount_in_to_account + $transfer_amount;
+                    }
+                
+                    mysqli_query($db,"UPDATE mec353_2.account SET balance = $to_account_new_balance WHERE account_id = $to_account AND client_id = $client_id");
+                    $money_transfer_success = true;
+                }
+            }
+    }
+    else{
+        $sql = "SELECT account_id, balance FROM mec353_2.account WHERE client_id = $client_id";
+        $result = mysqli_query($db,$sql);
+        while(($row = mysqli_fetch_array($result))) {
+            $account_ids[] = $row;
+        }
+    }
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
