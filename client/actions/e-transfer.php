@@ -171,6 +171,7 @@
                 <input type = "number" name = "transfer_amount" required>
             </div>
                 <div>
+                    <p> </p>
                     <h3>From</h3>
                     <select name = "from_account">
                         <?php foreach($account_ids as $account_id): ?>
@@ -179,6 +180,7 @@
                     </select>
                 </div>
             <div>
+                <p> </p>
                 <h3>To</h3>
                 <div id = "amount">Email Address</div>
                 <input type = "text" name = "email">
