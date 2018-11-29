@@ -17,6 +17,10 @@
                 ?>active<?php } ?>" href="/account.php">Account</a>
 		</li>
 		<li>
+		<li>
+		<a class="nav-link <?php if ($CURRENT_PAGE == "deposit_withdraw.php") { /*Refers to deposit money or withdraw money.*/
+                ?>active<?php } ?>" href="/client/actions/deposit_withdraw.php">Deposit/Withdraw</a>
+		</li>
 			<a class="nav-link <?php if ($CURRENT_PAGE == "transfer-money.php") {  /*page1.php is only for reference. add information when page is added.*/
                 ?>active<?php } ?>" href="/client/actions/transfer-money.php">Transfer Money</a>
 		</li>
