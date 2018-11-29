@@ -134,7 +134,19 @@
             <button type = "submit">Transfer</button>
         </form>
     </div>
-    
+    <?php elseif($negative_transfer_amount) : ?>
+		<h2 style="text-align: center;">Invalid: You have entered a negative amount</h2>
+        <?php elseif($zero_transfer_amount) : ?>
+		    <h2 style="text-align: center;">Invalid: You have entered '0' as an amount</h2>
+                <?php elseif($not_enough_funds) : ?>
+                <h2 style="text-align: center;">Invalid: Not enough funds in accounnt to withdraw</h2>
+                    <?php elseif($deposit) : ?>
+                    <h2 style="text-align: center;">Deposit Success!</h2>
+                        <?php elseif($withdraw) : ?>
+                        <h2 style="text-align: center;">Withdraw Success!</h2>
+                            <?php else : ?>
+                                <h2 style="text-align: center;">Money Transfer Success!</h2>
+                            <?php endif; ?>
 </div>
 
 <?php include("../../includes/footer.php");?>
